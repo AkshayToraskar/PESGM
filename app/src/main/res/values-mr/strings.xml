@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">पाईसागम</string>
+    <string name="title_home">होम</string>
+    <string name="title_dashboard">फोटो</string>
+    <string name="title_notifications">माहिती</string>
+
+    <string name="language">भाषा</string>
+</resources>
