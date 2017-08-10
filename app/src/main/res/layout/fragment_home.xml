@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 app:cardCornerRadius="2dp"
-                app:cardElevation="5dp">
+                app:cardElevation="3dp">
 
                 <TextView
                     android:layout_width="match_parent"
