@@ -12,22 +12,42 @@ import com.ak.pesgm.R;
 import com.ak.pesgm.fragment.AboutFragment;
 import com.ak.pesgm.fragment.GalleryFragment;
 import com.ak.pesgm.fragment.HomeFragment;
+import com.ak.pesgm.model.ImageData;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
+
+    @BindView(R.id.navigation)
+    BottomNavigationView navigation;
+
+
+    HomeFragment home = new HomeFragment();
+    GalleryFragment gallery = new GalleryFragment();
+    AboutFragment about = new AboutFragment();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ButterKnife.bind(this);
 
-        //  mTextMessage = (TextView) findViewById(R.id.message);
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        home = new HomeFragment();
+        gallery = new GalleryFragment();
+        about = new AboutFragment();
+
+        navigation.setSelectedItemId(R.id.navigation_home);
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
     }
 
 
-   // private TextView mTextMessage;
+    // private TextView mTextMessage;
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -36,33 +56,27 @@ public class MainActivity extends AppCompatActivity {
 
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 
+
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                 //   mTextMessage.setText(R.string.title_home);
-
-                    ft.replace(R.id.content, new HomeFragment());
+                    ft.replace(R.id.content, home);
                     ft.commit();
                     return true;
                 case R.id.navigation_dashboard:
-                  //  mTextMessage.setText(R.string.title_dashboard);
-                    ft.replace(R.id.content, new GalleryFragment());
+                    ft.replace(R.id.content, gallery);
                     ft.commit();
                     return true;
                 case R.id.navigation_about:
-                 //   mTextMessage.setText(R.string.title_notifications);
-
-                    ft.replace(R.id.content, new AboutFragment());
+                    ft.replace(R.id.content, about);
                     ft.commit();
                     return true;
             }
-
 
 
             return false;
         }
 
     };
-
 
 
 }

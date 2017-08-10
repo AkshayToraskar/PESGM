@@ -53,7 +53,7 @@ public class MyViewPagerAdapter extends PagerAdapter {
 
 
             Glide.with(activity)//.load(image.getByteArrayImage())
-                    .load(Uri.fromFile(new File(image.getPath())))
+                    .load(image.getPath())
 
                     .into(imageViewPreview);
 

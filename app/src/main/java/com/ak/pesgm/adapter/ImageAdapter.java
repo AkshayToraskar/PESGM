@@ -6,7 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.ak.pesgm.R;
 import com.ak.pesgm.app.PreviewData;
@@ -31,13 +34,14 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
     private Activity context;
     Realm realm;
     PreviewData previewData;
+    int lastPosition = -1;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.ivImg)
         ImageView ivImage;
-
-
+        @BindView(R.id.tv_year)
+        TextView tvYear;
 
         public MyViewHolder(View view) {
             super(view);
@@ -71,18 +75,27 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
-            Glide.with(context).load(sessionList.get(position).getByteArrayImage())
-                    //.load(new File(sessionList.get(position).getPath()))
-                    .thumbnail(0.5f)
-                    .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .into(holder.ivImage);
-           }
+        Glide.with(context).load(sessionList.get(position).getPath())
+                //.load(new File(sessionList.get(position).getPath()))
+                .thumbnail(0.5f)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .into(holder.ivImage);
+
+        holder.tvYear.setText(sessionList.get(position).getDate());
+
+        if (position > lastPosition) {
+
+            Animation animation = AnimationUtils.loadAnimation(context,
+                    R.anim.up_from_bottom);
+            holder.itemView.startAnimation(animation);
+            lastPosition = position;
+        }
+    }
 
     @Override
     public int getItemCount() {
         return sessionList.size();
     }
-
 
 
 }

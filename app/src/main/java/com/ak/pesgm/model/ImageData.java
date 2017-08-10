@@ -7,13 +7,13 @@ import io.realm.annotations.PrimaryKey;
  * Created by dg hdghfd on 12-04-2017.
  */
 
-public class ImageData extends RealmObject{
+public class ImageData extends RealmObject {
 
     @PrimaryKey
     Long id;
     byte[] byteArrayImage;
     String date;
-   String path;
+    int path;
     String info;
 
     public byte[] getByteArrayImage() {
@@ -32,7 +32,6 @@ public class ImageData extends RealmObject{
         this.date = date;
     }
 
-
     public Long getId() {
         return id;
     }
@@ -40,7 +39,6 @@ public class ImageData extends RealmObject{
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public String getInfo() {
         return info;
@@ -50,11 +48,11 @@ public class ImageData extends RealmObject{
         this.info = info;
     }
 
-    public String getPath() {
+    public int getPath() {
         return path;
     }
 
-    public void setPath(String path) {
+    public void setPath(int path) {
         this.path = path;
     }
 }

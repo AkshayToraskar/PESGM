@@ -3,4 +3,8 @@
     <color name="colorPrimary">#FF9800</color>
     <color name="colorPrimaryDark">#FF9800</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="trans_black">#FF9800</color>
+    <color name="white">#FFFFFF</color>
+
 </resources>

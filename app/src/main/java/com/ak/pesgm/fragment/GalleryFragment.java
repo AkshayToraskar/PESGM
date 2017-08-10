@@ -20,6 +20,7 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.Realm;
 import io.realm.RealmList;
 
 /**
@@ -36,6 +37,7 @@ public class GalleryFragment extends Fragment implements PreviewData {
     public static ArrayList<ImageData> imageData;
 
     public static PreviewData previewData;
+    Realm realm;
 
     public GalleryFragment() {
         // Required empty public constructor
@@ -48,15 +50,18 @@ public class GalleryFragment extends Fragment implements PreviewData {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_gallery, container, false);
         ButterKnife.bind(this, view);
+        realm = Realm.getDefaultInstance();
 
         imageData = new ArrayList<>();
         ImageList = new RealmList<>();
         previewData = this;
 
+        ImageList.addAll(realm.where(ImageData.class).findAll());
+
         mAdapter = new ImageAdapter(getActivity(), ImageList, previewData);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         rvImageCollection.setLayoutManager(mLayoutManager);
-        rvImageCollection.setItemAnimator(new DefaultItemAnimator());
+
         rvImageCollection.setAdapter(mAdapter);
 
 
@@ -80,16 +85,5 @@ public class GalleryFragment extends Fragment implements PreviewData {
         newFragment.show(ft, "slideshow");
     }
 
-    public void createDummyImageData() {
-        for (int i = 0; i < 10; i++) {
 
-            ImageData imgData=new ImageData();
-            imgData.setId((long)i);
-            imgData.setDate("1-2-3");
-            imgData.setPath("");
-            imgData.setInfo("");
-
-            imageData.add(imgData);
-        }
-    }
 }

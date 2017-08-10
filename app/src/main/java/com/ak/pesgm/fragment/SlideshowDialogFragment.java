@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.ak.pesgm.R;
@@ -36,8 +37,8 @@ public class SlideshowDialogFragment extends DialogFragment {
     private ArrayList<ImageData> images;
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
-    private TextView lblCount;//, lblTitle, lblDate;
-    ImageButton btnDelete, btnEdit;
+    private TextView  lblTitle;//lblCount,, lblDate;
+    ImageButton btnInfo;//, btnEdit;
     private int selectedPosition = 0;
     Realm realm;
 
@@ -53,11 +54,11 @@ public class SlideshowDialogFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_image_slider, container, false);
         viewPager = (ViewPager) v.findViewById(R.id.viewpager);
-        lblCount = (TextView) v.findViewById(R.id.lbl_count);
-        //lblTitle = (TextView) v.findViewById(R.id.title);
+        //lblCount = (TextView) v.findViewById(R.id.lbl_count);
+        lblTitle = (TextView) v.findViewById(R.id.title);
         //lblDate = (TextView) v.findViewById(R.id.date);
-        btnDelete = (ImageButton) v.findViewById(R.id.btnDelete);
-        btnEdit = (ImageButton) v.findViewById(R.id.btnEdit);
+        btnInfo = (ImageButton) v.findViewById(R.id.btnInfo);
+       // btnEdit = (ImageButton) v.findViewById(R.id.btnEdit);
         realm = Realm.getDefaultInstance();
 
         images = GalleryFragment.imageData; //(ArrayList<ImageData>) getArguments().getSerializable("images");
@@ -74,21 +75,21 @@ public class SlideshowDialogFragment extends DialogFragment {
         setCurrentItem(selectedPosition);
 
 
-        btnDelete.setOnClickListener(new View.OnClickListener() {
+        btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getActivity(),"ImageInfo",Toast.LENGTH_SHORT).show();
 
             }
 
         });
 
-        btnEdit.setOnClickListener(new View.OnClickListener() {
+        /*btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
             }
-        });
+        });*/
 
         return v;
     }
@@ -118,10 +119,10 @@ public class SlideshowDialogFragment extends DialogFragment {
     };
 
     private void displayMetaInfo(int position) {
-        lblCount.setText((position + 1) + " of " + images.size());
+       // lblCount.setText((position + 1) + " of " + images.size());
 
         ImageData image = images.get(position);
-       // lblTitle.setText(String.valueOf(image.getId()));
+        lblTitle.setText(String.valueOf(image.getDate()));
         //lblDate.setText(image.getDate());
 /*
         if (image.getMediaType() == 1) {

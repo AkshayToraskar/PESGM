@@ -17,9 +17,8 @@ public class SessionManager {
     int PRIVATE_MODE = 0;
 
     private static final String PREF_NAME = "pesgm";
-    private static final String LANGUAGE="language";
-
-
+    private static final String LANGUAGE = "language";
+    private static final String GENERATEDATA = "generate_data";
 
     public SessionManager(Context context) {
         this._context = context;
@@ -28,13 +27,24 @@ public class SessionManager {
     }
 
 
-    public void setLanguage(String lang){
-        editor.putString(LANGUAGE,lang);
+    public void setGenerateData(boolean flag) {
+        editor.putBoolean(GENERATEDATA, flag);
         editor.commit();
     }
 
-    public String getLanguage(){
-        return pref.getString(LANGUAGE,"en");
+    public boolean isDataGenerated(){
+        return pref.getBoolean(GENERATEDATA,false);
+    }
+
+
+
+    public void setLanguage(String lang) {
+        editor.putString(LANGUAGE, lang);
+        editor.commit();
+    }
+
+    public String getLanguage() {
+        return pref.getString(LANGUAGE, "en");
     }
 
 }

@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:background="@android:color/black" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/lbl_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:layout_marginTop="20dp"
         android:textColor="@android:color/white"
         android:textSize="16dp"
-        android:textStyle="bold" />
+        android:textStyle="bold" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,42 +38,43 @@
             android:layout_weight="5"
             android:orientation="vertical">
 
-            <!--<TextView
+            <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="16dp"
-                android:textStyle="bold" />-->
+                android:text="2015"
+                android:textStyle="bold" />
 
-            <TextView
+            <!--<TextView
                 android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentLeft="true"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white" />-->
 
         </LinearLayout>
 
 
         <ImageButton
-            android:id="@+id/btnEdit"
+            android:id="@+id/btnInfo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            app:srcCompat="@drawable/ic_home_black_24dp"
-            android:layout_weight="1"
-            android:text="edit" />
+            app:srcCompat="@drawable/ic_info_outline_white_24dp"
+            android:layout_weight="2"
+            android:text="Info" />
 
-        <ImageButton
-            android:id="@+id/btnDelete"
+       <!-- <ImageButton
+            android:id="@+id/btnShare"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_home_black_24dp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="del" />
+            android:text="Share" />-->
     </LinearLayout>
 
 
