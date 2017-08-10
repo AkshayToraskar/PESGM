@@ -21,7 +21,7 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
     PDFView pdfView;
 
     String pdfFileName;
-    public static final String SAMPLE_FILE = "sample.pdf";
+    public static final String SAMPLE_FILE = "aarti.pdf";
     Integer pageNumber = 0;
     private static final String TAG = PdfActivity.class.getSimpleName();
 

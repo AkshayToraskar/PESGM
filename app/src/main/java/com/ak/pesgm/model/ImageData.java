@@ -10,7 +10,7 @@ import io.realm.annotations.PrimaryKey;
 public class ImageData extends RealmObject {
 
     @PrimaryKey
-    Long id;
+    long id;
     byte[] byteArrayImage;
     String date;
     int path;
@@ -32,11 +32,11 @@ public class ImageData extends RealmObject {
         this.date = date;
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
