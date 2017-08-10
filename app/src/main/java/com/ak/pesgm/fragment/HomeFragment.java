@@ -2,6 +2,9 @@ package com.ak.pesgm.fragment;
 
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -29,6 +32,9 @@ public class HomeFragment extends Fragment {
 
     View view;
 
+    String fburl = "https://www.facebook.com/PESGMandal1/";
+    String instaurl = "https://www.instagram.com/pesgm/";
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -51,18 +57,43 @@ public class HomeFragment extends Fragment {
         cvFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent fbIntent = getFacebookIntent(fburl);
+                startActivity(fbIntent);
             }
         });
 
         cvInsta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                getInstagramIntent(instaurl);
             }
         });
 
         return view;
     }
 
+
+    public Intent getFacebookIntent(String url) {
+
+        PackageManager pm = getActivity().getPackageManager();
+        Uri uri = Uri.parse(url);
+
+        try {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+            if (applicationInfo.enabled) {
+                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
+            }
+        } catch (PackageManager.NameNotFoundException ignored) {
+        }
+
+        return new Intent(Intent.ACTION_VIEW, uri);
+    }
+
+    public void getInstagramIntent(String url) {
+
+        Uri uri = Uri.parse(url);
+        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
+        likeIng.setPackage("com.instagram.android");
+        startActivity(likeIng);
+    }
 }
