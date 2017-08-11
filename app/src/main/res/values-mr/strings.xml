@@ -6,4 +6,6 @@
 
     <string name="language">भाषा</string>
     <string name="aarti">आरती संग्रह</string>
+
+    <string name="hello_blank_fragment">माहिती</string>
 </resources>
