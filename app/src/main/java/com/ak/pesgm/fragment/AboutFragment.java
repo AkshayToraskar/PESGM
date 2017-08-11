@@ -1,12 +1,12 @@
 package com.ak.pesgm.fragment;
 
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
-import android.support.v4.app.Fragment;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,9 +50,9 @@ public class AboutFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        view=inflater.inflate(R.layout.fragment_about, container, false);
-        ButterKnife.bind(this,view);
-        sessionManager=new SessionManager(getActivity());
+        view = inflater.inflate(R.layout.fragment_about, container, false);
+        ButterKnife.bind(this, view);
+        sessionManager = new SessionManager(getActivity());
 
         if (sessionManager.getLanguage().equals("mr")) {
             rbMarathi.setChecked(true);
@@ -95,7 +95,6 @@ public class AboutFragment extends Fragment {
         refresh.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(refresh);
     }
-
 
 
 }

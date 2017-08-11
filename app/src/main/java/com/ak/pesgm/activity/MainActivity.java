@@ -1,10 +1,13 @@
 package com.ak.pesgm.activity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -35,48 +38,62 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+
         home = new HomeFragment();
         gallery = new GalleryFragment();
         about = new AboutFragment();
 
-        navigation.setSelectedItemId(R.id.navigation_home);
+        // Select first menu item by default and show Fragment accordingly.
+        Menu menu = navigation.getMenu();
+        selectFragment(menu.getItem(0));
 
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                selectFragment(item);
+
+                return true;
+            }
+        });
 
 
     }
 
 
-    // private TextView mTextMessage;
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    protected void selectFragment(MenuItem item) {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        item.setChecked(true);
 
-            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        switch (item.getItemId()) {
 
+            case R.id.navigation_home:
+                pushFragment(home);
+                break;
+            case R.id.navigation_dashboard:
+                pushFragment(gallery);
+                break;
+            case R.id.navigation_about:
+                pushFragment(about);
+                break;
 
-            switch (item.getItemId()) {
-                case R.id.navigation_home:
-                    ft.replace(R.id.content, home);
-                    ft.commit();
-                    return true;
-                case R.id.navigation_dashboard:
-                    ft.replace(R.id.content, gallery);
-                    ft.commit();
-                    return true;
-                case R.id.navigation_about:
-                    ft.replace(R.id.content, about);
-                    ft.commit();
-                    return true;
-            }
-
-
-            return false;
         }
+    }
 
-    };
+
+    protected void pushFragment(Fragment fragment) {
+        if (fragment == null)
+            return;
+
+        FragmentManager fragmentManager = getFragmentManager();
+        if (fragmentManager != null) {
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            if (ft != null) {
+                ft.replace(R.id.content, fragment);
+                ft.commit();
+            }
+        }
+    }
 
 
 }

@@ -1,5 +1,6 @@
 package com.ak.pesgm.fragment;
 
+import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -15,6 +16,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,12 +39,12 @@ public class SlideshowDialogFragment extends DialogFragment {
     private ArrayList<ImageData> images;
     private ViewPager viewPager;
     private MyViewPagerAdapter myViewPagerAdapter;
-    private TextView  lblTitle;//lblCount,, lblDate;
+    private TextView lblTitle;//lblCount,, lblDate;
     ImageButton btnInfo;//, btnEdit;
     private int selectedPosition = 0;
     Realm realm;
 
-
+    int pos;
 
     public static SlideshowDialogFragment newInstance() {
         SlideshowDialogFragment f = new SlideshowDialogFragment();
@@ -58,7 +60,7 @@ public class SlideshowDialogFragment extends DialogFragment {
         lblTitle = (TextView) v.findViewById(R.id.title);
         //lblDate = (TextView) v.findViewById(R.id.date);
         btnInfo = (ImageButton) v.findViewById(R.id.btnInfo);
-       // btnEdit = (ImageButton) v.findViewById(R.id.btnEdit);
+        // btnEdit = (ImageButton) v.findViewById(R.id.btnEdit);
         realm = Realm.getDefaultInstance();
 
         images = GalleryFragment.imageData; //(ArrayList<ImageData>) getArguments().getSerializable("images");
@@ -78,7 +80,30 @@ public class SlideshowDialogFragment extends DialogFragment {
         btnInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"ImageInfo",Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getActivity(),"ImageInfo",Toast.LENGTH_SHORT).show();
+                ImageData image = images.get(pos);
+
+                // custom dialog
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setContentView(R.layout.info_dialog);
+                dialog.setTitle(image.getDate() + "");
+
+                // set the custom dialog components - text, image and button
+                TextView text = (TextView) dialog.findViewById(R.id.text);
+                text.setText(image.getInfo() + "");
+
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+                // if button is clicked, close the custom dialog
+                dialogButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+
 
             }
 
@@ -119,7 +144,9 @@ public class SlideshowDialogFragment extends DialogFragment {
     };
 
     private void displayMetaInfo(int position) {
-       // lblCount.setText((position + 1) + " of " + images.size());
+        // lblCount.setText((position + 1) + " of " + images.size());
+
+        pos = position;
 
         ImageData image = images.get(position);
         lblTitle.setText(String.valueOf(image.getDate()));
@@ -141,7 +168,6 @@ public class SlideshowDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NORMAL, android.R.style.Theme_Black_NoTitleBar_Fullscreen);
     }
-
 
 
 }
