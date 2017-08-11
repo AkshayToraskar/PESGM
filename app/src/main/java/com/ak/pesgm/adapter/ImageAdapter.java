@@ -22,7 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
+//import io.realm.Realm;
 
 /**
  * Created by dg hdghfd on 12-04-2017.
@@ -32,7 +32,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
 
     private List<ImageData> sessionList;
     private Activity context;
-    Realm realm;
+  //  Realm realm;
     PreviewData previewData;
     int lastPosition = -1;
 
@@ -61,7 +61,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
         this.sessionList = sessionList;
         this.context = context;
         this.previewData = previewData;
-        realm = Realm.getDefaultInstance();
+       // realm = Realm.getDefaultInstance();
     }
 
     @Override

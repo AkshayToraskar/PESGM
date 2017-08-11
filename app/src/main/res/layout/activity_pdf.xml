@@ -6,9 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.ak.pesgm.activity.PdfActivity">
 
-    <com.github.barteksc.pdfviewer.PDFView
+   <!-- <com.github.barteksc.pdfviewer.PDFView
         android:id="@+id/pdfView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"/>-->
+
+   <WebView
+       android:id="@+id/wv_pdf"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"></WebView>
 
 </LinearLayout>

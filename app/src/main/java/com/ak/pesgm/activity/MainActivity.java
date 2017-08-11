@@ -19,7 +19,7 @@ import com.ak.pesgm.model.ImageData;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
+//import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
 

@@ -1,29 +1,29 @@
 package com.ak.pesgm.model;
 
-import io.realm.RealmObject;
-import io.realm.annotations.PrimaryKey;
+//import io.realm.RealmObject;
+//import io.realm.annotations.PrimaryKey;
 
 /**
  * Created by dg hdghfd on 12-04-2017.
  */
 
-public class ImageData extends RealmObject {
+public class ImageData{// extends RealmObject {
 
-    @PrimaryKey
-    long id;
-    byte[] byteArrayImage;
+   // @PrimaryKey
+  //  long id;
+   // byte[] byteArrayImage;
     String date;
     int path;
     String info;
 
-    public byte[] getByteArrayImage() {
+   /* public byte[] getByteArrayImage() {
         return byteArrayImage;
     }
 
     public void setByteArrayImage(byte[] byteArrayImage) {
         this.byteArrayImage = byteArrayImage;
     }
-
+*/
     public String getDate() {
         return date;
     }
@@ -32,14 +32,14 @@ public class ImageData extends RealmObject {
         this.date = date;
     }
 
-    public long getId() {
+  /*  public long getId() {
         return id;
     }
 
     public void setId(long id) {
         this.id = id;
     }
-
+*/
     public String getInfo() {
         return info;
     }

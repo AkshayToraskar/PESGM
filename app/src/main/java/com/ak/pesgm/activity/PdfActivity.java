@@ -1,29 +1,24 @@
 package com.ak.pesgm.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import com.ak.pesgm.R;
-import com.github.barteksc.pdfviewer.PDFView;
-import com.github.barteksc.pdfviewer.listener.OnLoadCompleteListener;
-import com.github.barteksc.pdfviewer.listener.OnPageChangeListener;
-import com.github.barteksc.pdfviewer.scroll.DefaultScrollHandle;
-import com.shockwave.pdfium.PdfDocument;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PdfActivity extends AppCompatActivity implements OnPageChangeListener, OnLoadCompleteListener {
 
-    @BindView(R.id.pdfView)
-    PDFView pdfView;
 
-    String pdfFileName;
-    public static final String SAMPLE_FILE = "aarti.pdf";
-    Integer pageNumber = 0;
-    private static final String TAG = PdfActivity.class.getSimpleName();
+public class PdfActivity extends AppCompatActivity {
+
+    @BindView(R.id.wv_pdf)
+    WebView webView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +28,18 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        // pdfView.fromFile();
-        displayFromAsset(SAMPLE_FILE);
+        WebSettings settings = webView.getSettings();
+        settings.setJavaScriptEnabled(true);
+
+        //The default value is true for API level android.os.Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1 and below,
+        //and false for API level android.os.Build.VERSION_CODES.JELLY_BEAN and above.
+        if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN)
+            settings.setAllowUniversalAccessFromFileURLs(true);
+
+        settings.setBuiltInZoomControls(true);
+        webView.setWebChromeClient(new WebChromeClient());
+        webView.loadUrl("file:///android_asset/pdfviewer/index.html");
+
 
     }
 
@@ -51,38 +56,22 @@ public class PdfActivity extends AppCompatActivity implements OnPageChangeListen
         return super.onOptionsItemSelected(item);
     }
 
-    private void displayFromAsset(String assetFileName) {
-        pdfFileName = assetFileName;
 
-        pdfView.fromAsset(SAMPLE_FILE)
-                .defaultPage(pageNumber)
-                .onPageChange(this)
-                .enableAnnotationRendering(true)
-                .onLoad(this)
-                .scrollHandle(new DefaultScrollHandle(this))
-                //.spacing(10) // in dp
-                .load();
+
+    //	reload on resume
+    @Override
+    protected void onResume() {
+        super.onResume();
+        webView.loadUrl( "javascript:window.location.reload( true )" );
+
     }
 
+    //	clear cache to ensure we have good reload
     @Override
-    public void onPageChanged(int page, int pageCount) {
-        pageNumber = page;
-        setTitle(String.format("%s %s / %s", pdfFileName, page + 1, pageCount));
-    }
+    protected void onPause() {
+        super.onPause();
+        webView.clearCache(true);
 
-    @Override
-    public void loadComplete(int nbPages) {
-        PdfDocument.Meta meta = pdfView.getDocumentMeta();
-        Log.e(TAG, "title = " + meta.getTitle());
-        Log.e(TAG, "author = " + meta.getAuthor());
-        Log.e(TAG, "subject = " + meta.getSubject());
-        Log.e(TAG, "keywords = " + meta.getKeywords());
-        Log.e(TAG, "creator = " + meta.getCreator());
-        Log.e(TAG, "producer = " + meta.getProducer());
-        Log.e(TAG, "creationDate = " + meta.getCreationDate());
-        Log.e(TAG, "modDate = " + meta.getModDate());
-
-        //printBookmarksTree(pdfView.getTableOfContents(), "-");
     }
 
 

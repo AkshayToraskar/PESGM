@@ -17,11 +17,12 @@ import com.ak.pesgm.app.PreviewData;
 import com.ak.pesgm.model.ImageData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.Realm;
-import io.realm.RealmList;
+//import io.realm.Realm;
+//import io.realm.RealmList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,7 +30,7 @@ import io.realm.RealmList;
 public class GalleryFragment extends Fragment implements PreviewData {
 
     View view;
-    private RealmList<ImageData> ImageList;
+    private List<ImageData> ImageList;
     public ImageAdapter mAdapter;
     @BindView(R.id.rvImageCollection)
     RecyclerView rvImageCollection;
@@ -37,7 +38,7 @@ public class GalleryFragment extends Fragment implements PreviewData {
     public static ArrayList<ImageData> imageData;
 
     public static PreviewData previewData;
-    Realm realm;
+    // Realm realm;
 
     public GalleryFragment() {
         // Required empty public constructor
@@ -50,13 +51,13 @@ public class GalleryFragment extends Fragment implements PreviewData {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_gallery, container, false);
         ButterKnife.bind(this, view);
-        realm = Realm.getDefaultInstance();
+        // realm = Realm.getDefaultInstance();
 
         imageData = new ArrayList<>();
-        ImageList = new RealmList<>();
+        ImageList = new ArrayList<>();
         previewData = this;
-
-        ImageList.addAll(realm.where(ImageData.class).findAll());
+        generateImageData();
+        //ImageList.addAll(realm.where(ImageData.class).findAll());
 
         mAdapter = new ImageAdapter(getActivity(), ImageList, previewData);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
@@ -85,5 +86,50 @@ public class GalleryFragment extends Fragment implements PreviewData {
         newFragment.show(ft, "slideshow");
     }
 
+    int[] imgpath = {
+            R.raw.fd1984,
+            R.raw.fd1985,
+            R.raw.fd1986,
+            R.raw.fd1991,
+            R.raw.fd1992,
+            R.raw.fd1993,
+            R.raw.fd1994,
+            R.raw.fd1995,
+            R.raw.fd1996,
+            R.raw.fd1997,
+            R.raw.fd1998,
+            R.raw.fd1999,
+            R.raw.fd2000,
+            R.raw.fd2001,
+            R.raw.fd2002,
+            R.raw.fd2003,
+            R.raw.fd2004,
+            R.raw.fd2005,
+            R.raw.fd2006,
+            R.raw.fd2007,
+            R.raw.fd2008,
+            R.raw.fd2009,
+            R.raw.fd2010,
+            R.raw.fd2011,
+            R.raw.fd2012,
+            R.raw.fd2013,
+            R.raw.fd2014
+    };
+
+    public void generateImageData() {
+        String[] year = getActivity().getResources().getStringArray(R.array.year);
+        String[] info = getActivity().getResources().getStringArray(R.array.info);
+
+
+        for (int i = 0; i < year.length; i++) {
+            ImageData img = new ImageData();
+            img.setDate(year[i]);
+            img.setInfo(info[i]);
+            img.setPath(imgpath[i]);
+
+            ImageList.add(img);
+        }
+
+    }
 
 }

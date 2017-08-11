@@ -17,7 +17,7 @@ import com.ak.pesgm.model.ImageData;
 import java.util.Locale;
 
 import butterknife.ButterKnife;
-import io.realm.Realm;
+//import io.realm.Realm;
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -27,7 +27,7 @@ public class SplashActivity extends AppCompatActivity {
     Locale myLocale;
     public static int SPLASH_TIME_OUT = 2000;
     private SessionManager sessionManager;
-    Realm realm;
+  //  Realm realm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +36,15 @@ public class SplashActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        realm = Realm.getDefaultInstance();
+       // realm = Realm.getDefaultInstance();
         setContentView(R.layout.activity_splash);
 
         ButterKnife.bind(this);
         sessionManager = new SessionManager(getApplicationContext());
 
-        if (!sessionManager.isDataGenerated()) {
+       /* if (!sessionManager.isDataGenerated()) {
             createDummyImageData();
-        }
+        }*/
 
         if (sessionManager.getLanguage().equals("mr")) {
             setLocale("mr");
@@ -87,7 +87,7 @@ public class SplashActivity extends AppCompatActivity {
         //startActivity(refresh);
     }
 
-    public void createDummyImageData() {
+    /*public void createDummyImageData() {
 
         realm.executeTransaction(new Realm.Transaction() {
             @Override
@@ -318,5 +318,5 @@ public class SplashActivity extends AppCompatActivity {
                 sessionManager.setGenerateData(true);
             }
         });
-    }
+    }*/
 }

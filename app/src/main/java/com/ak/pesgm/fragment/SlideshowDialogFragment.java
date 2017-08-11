@@ -31,7 +31,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 
-import io.realm.Realm;
+//import io.realm.Realm;
 
 
 public class SlideshowDialogFragment extends DialogFragment {
@@ -42,7 +42,7 @@ public class SlideshowDialogFragment extends DialogFragment {
     private TextView lblTitle;//lblCount,, lblDate;
     ImageButton btnInfo;//, btnEdit;
     private int selectedPosition = 0;
-    Realm realm;
+    //Realm realm;
 
     int pos;
 
@@ -61,7 +61,7 @@ public class SlideshowDialogFragment extends DialogFragment {
         //lblDate = (TextView) v.findViewById(R.id.date);
         btnInfo = (ImageButton) v.findViewById(R.id.btnInfo);
         // btnEdit = (ImageButton) v.findViewById(R.id.btnEdit);
-        realm = Realm.getDefaultInstance();
+       // realm = Realm.getDefaultInstance();
 
         images = GalleryFragment.imageData; //(ArrayList<ImageData>) getArguments().getSerializable("images");
         selectedPosition = getArguments().getInt("position");

@@ -2,7 +2,7 @@ package com.ak.pesgm.app;
 
 import android.app.Application;
 
-import io.realm.Realm;
+//import io.realm.Realm;
 
 /**
  * Created by dg hdghfd on 28-12-2016.
@@ -14,6 +14,6 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
         // Initialize Realm. Should only be done once when the application starts.
-        Realm.init(this);
+       // Realm.init(this);
     }
 }
