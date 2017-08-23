@@ -150,6 +150,14 @@ public class SlideshowDialogFragment extends DialogFragment {
 
         ImageData image = images.get(position);
         lblTitle.setText(String.valueOf(image.getDate()));
+
+        if(image.getInfo().equals("")){
+            btnInfo.setVisibility(View.GONE);
+        }
+        else {
+            btnInfo.setVisibility(View.VISIBLE);
+        }
+
         //lblDate.setText(image.getDate());
 /*
         if (image.getMediaType() == 1) {

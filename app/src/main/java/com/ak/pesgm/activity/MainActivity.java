@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView navigation;
 
 
-    HomeFragment home = new HomeFragment();
+   // HomeFragment home = new HomeFragment();
     GalleryFragment gallery = new GalleryFragment();
     AboutFragment about = new AboutFragment();
 
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        home = new HomeFragment();
+      //  home = new HomeFragment();
         gallery = new GalleryFragment();
         about = new AboutFragment();
 
@@ -67,9 +67,9 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.navigation_home:
+          /*  case R.id.navigation_home:
                 pushFragment(home);
-                break;
+                break;*/
             case R.id.navigation_dashboard:
                 pushFragment(gallery);
                 break;
