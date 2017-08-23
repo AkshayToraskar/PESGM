@@ -4,8 +4,13 @@
     <string name="title_dashboard">फोटो</string>
     <string name="title_notifications">माहिती</string>
 
+    <string name="app_title">पाटील इस्टेट सार्वजनिक गणेशोत्सव मंडळ</string>
+
     <string name="language">भाषा</string>
     <string name="aarti">आरती संग्रह</string>
+
+
+    <string name="address">Address</string>
 
     <string-array name="year">
         <item>१९८४</item>
@@ -35,6 +40,9 @@
         <item>२०१२</item>
         <item>२०१३</item>
         <item>२०१४</item>
+        <item>२०१५</item>
+        <item>२०१६</item>
+
     </string-array>
 
     <string-array name="info">
@@ -78,5 +86,14 @@
         <item></item>
         <item></item>
         <item></item>
+        <item></item>
+        <item></item>
     </string-array>
+
+    <string-array name="tips_tricks">
+        <item>a</item>
+        <item>b</item>
+    </string-array>
+
+    <string name="scrach_text">आजचे गणेशाचे नाव</string>
 </resources>

@@ -44,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/white"
                 android:textSize="20dp"
-                android:layout_gravity="center_horizontal"
                 android:text="2015"
                 android:textStyle="bold" />
 
@@ -58,14 +57,42 @@
 
         </LinearLayout>
 
+        <ImageButton
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:srcCompat="@drawable/ic_share_white_24dp"
+            android:text="Info" />
+
+        <ImageButton
+            android:id="@+id/btnWallpaper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/transparent"
+            app:srcCompat="@drawable/ic_wallpaper_white_24dp"
+            android:text="Info" />
 
         <ImageButton
             android:id="@+id/btnInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:layout_marginLeft="10dp"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/cup"
             android:text="Info" />
+
+
 
        <!-- <ImageButton
             android:id="@+id/btnShare"

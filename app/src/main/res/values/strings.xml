@@ -4,6 +4,8 @@
     <string name="title_dashboard">Photo</string>
     <string name="title_notifications">Information</string>
 
+    <string name="app_title">Patil Estate Sarvjanik Ganeshostav Mandal</string>
+
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
@@ -39,6 +41,8 @@
         <item>2012</item>
         <item>2013</item>
         <item>2014</item>
+        <item>2015</item>
+        <item>2016</item>
     </string-array>
 
     <string-array name="info">
@@ -82,7 +86,16 @@
         <item></item>
         <item></item>
         <item></item>
+        <item></item>
+        <item></item>
     </string-array>
 
+    <string-array name="tips_tricks">
+        <item>aa</item>
+        <item>bb</item>
+    </string-array>
 
+    <string name="scrach_text">Scratch to view todays Ganesh Name</string>
+
+    <string name="address">Address</string>
 </resources>

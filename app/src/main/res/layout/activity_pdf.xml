@@ -11,9 +11,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>-->
 
-   <WebView
+   <!--<WebView
        android:id="@+id/wv_pdf"
        android:layout_width="match_parent"
-       android:layout_height="match_parent"></WebView>
+       android:layout_height="match_parent"></WebView>-->
+
+   <com.joanzapata.pdfview.PDFView
+       android:id="@+id/pdfview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"/>
 
 </LinearLayout>
