@@ -116,7 +116,8 @@ public class GalleryFragment extends Fragment implements PreviewData {
             R.raw.fd2014,
             R.raw.fd2015,
             R.raw.fd2016,
-            R.raw.fd2017
+            R.raw.fd2017,
+            R.raw.fd2010
     };
 
     public void generateImageData() {

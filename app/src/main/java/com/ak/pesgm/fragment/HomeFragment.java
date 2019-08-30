@@ -23,12 +23,12 @@ import butterknife.ButterKnife;
  */
 public class HomeFragment extends Fragment {
 
-    @BindView(R.id.cv_aarti_collection)
+   /* @BindView(R.id.cv_aarti_collection)
     CardView cvAartiCollection;
     @BindView(R.id.cv_facebook)
     CardView cvFacebook;
     @BindView(R.id.cv_insta)
-    CardView cvInsta;
+    CardView cvInsta;*/
 
     View view;
 
@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
 
-        cvAartiCollection.setOnClickListener(new View.OnClickListener() {
+       /* cvAartiCollection.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getActivity(), PdfActivity.class));
@@ -67,33 +67,11 @@ public class HomeFragment extends Fragment {
             public void onClick(View view) {
                 getInstagramIntent(instaurl);
             }
-        });
+        });*/
 
         return view;
     }
 
 
-    public Intent getFacebookIntent(String url) {
 
-        PackageManager pm = getActivity().getPackageManager();
-        Uri uri = Uri.parse(url);
-
-        try {
-            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
-            if (applicationInfo.enabled) {
-                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
-            }
-        } catch (PackageManager.NameNotFoundException ignored) {
-        }
-
-        return new Intent(Intent.ACTION_VIEW, uri);
-    }
-
-    public void getInstagramIntent(String url) {
-
-        Uri uri = Uri.parse(url);
-        Intent likeIng = new Intent(Intent.ACTION_VIEW, uri);
-        likeIng.setPackage("com.instagram.android");
-        startActivity(likeIng);
-    }
 }
