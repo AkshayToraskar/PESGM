@@ -7,10 +7,13 @@
     <string name="app_title">Patil Estate Sarvjanik Ganeshostav Mandal</string>
 
 
-
     <string name="language">Language</string>
     <string name="aarti">Aarti Collection</string>
 
+
+    <string name="scrach_text">Scratch to view todays Ganesh Name</string>
+
+    <string name="address">Address</string>
 
     <string-array name="year">
         <item>1984</item>
@@ -95,8 +98,4 @@
         <item>aa</item>
         <item>bb</item>
     </string-array>
-
-    <string name="scrach_text">Scratch to view todays Ganesh Name</string>
-
-    <string name="address">Address</string>
 </resources>

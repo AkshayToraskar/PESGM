@@ -36,6 +36,7 @@ import android.widget.TextView;
 import com.ak.pesgm.R;
 import com.ak.pesgm.activity.MainActivity;
 import com.ak.pesgm.activity.PdfActivity;
+import com.ak.pesgm.activity.PesgmActivity;
 import com.ak.pesgm.app.SessionManager;
 //import com.jackpocket.scratchoff.ScratchoffController;
 
@@ -233,7 +234,7 @@ public class AboutFragment extends Fragment {
         conf.locale = myLocale;
         res.updateConfiguration(conf, dm);
 
-        Intent refresh = new Intent(getActivity(), MainActivity.class);
+        Intent refresh = new Intent(getActivity(), PesgmActivity.class);
         refresh.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(refresh);
     }
