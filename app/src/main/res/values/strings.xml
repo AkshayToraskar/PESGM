@@ -5,7 +5,7 @@
     <string name="title_notifications">Information</string>
 
     <string name="app_title">Patil Estate Sarvjanik Ganeshostav Mandal</string>
-
+<string name="app_subtitle">(Diamond festival)</string>
 
     <string name="language">Language</string>
     <string name="aarti">Aarti Collection</string>
@@ -47,6 +47,7 @@
         <item>2016</item>
         <item>2017</item>
         <item>2018</item>
+        <item>2019</item>
     </string-array>
 
     <string-array name="info">
@@ -86,6 +87,7 @@
 				➧ बृहमुंबई महानगर पालिका आयोजित श्री गणेश गौरव पुरस्कार २००९ स्पर्धेत नेपथ्या याकरिता प्रशस्तीपत्र</item>
         <item>➧ नाना चुडासमा आय लव्ह मुंबई याची इको फ्रेंडली गणेश स्पर्धेमध्ये उत्तेजनार्थ  बक्षीस सन्मानपत्र व रोख रक्कम १५००/-\n\n
 				➧ मुंबई मित्र गणेश स्पर्धा(अभिजित राणे) यामध्ये उत्तेजनार्थ  पुरस्कार मानचिन्ह व सन्मानचिन्ह</item>
+        <item></item>
         <item></item>
         <item></item>
         <item></item>

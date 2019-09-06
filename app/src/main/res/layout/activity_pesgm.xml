@@ -6,11 +6,62 @@
     android:layout_height="match_parent"
     tools:context=".activity.PesgmActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/appbarlayout">
+
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="30dp"
+            android:paddingBottom="30dp" />
+
+        <!-- <TextView
+             android:id="@+id/message"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginBottom="@dimen/activity_vertical_margin"
+             android:layout_marginLeft="@dimen/activity_horizontal_margin"
+             android:layout_marginRight="@dimen/activity_horizontal_margin"
+             android:layout_marginTop="@dimen/activity_vertical_margin"
+             android:text="@string/title_home" />-->
+
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/topbar"></ImageView>
+
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/navigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:background="?android:attr/windowBackground"
+            app:menu="@menu/navigation" />
+
+
+    </RelativeLayout>
+
+    <!--
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/appbarlayout"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    -->
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout"
         android:layout_width="match_parent"
-        app:elevation="0dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
@@ -18,71 +69,54 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             app:titleTextColor="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Title"
+                    android:layout_marginRight="10dp"
+                    android:textSize="20sp"
+                    android:textColor="@color/footer"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvSubtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center_horizontal"
+                    android:text="subtitle"
+                    android:textColor="@color/footer"
+                    android:textSize="18sp"/>
+            </LinearLayout>
         </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp">
+            android:layout_marginTop="10dp">
 
             <ImageView
+                android:id="@+id/ivDiamond"
                 android:layout_width="50dp"
-                android:layout_height="40dp"
+                android:layout_height="70dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/diamond" />
         </RelativeLayout>
 
     </android.support.design.widget.AppBarLayout>
+    <!--
 
-    <android.support.v4.widget.SwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/appbarlayout"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-
-            <FrameLayout
-                android:id="@+id/content"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="30dp"
-                android:paddingBottom="30dp" />
-
-            <!-- <TextView
-                 android:id="@+id/message"
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginBottom="@dimen/activity_vertical_margin"
-                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
-                 android:layout_marginRight="@dimen/activity_horizontal_margin"
-                 android:layout_marginTop="@dimen/activity_vertical_margin"
-                 android:text="@string/title_home" />-->
-
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/topbar"></ImageView>
-
-            <android.support.design.widget.BottomNavigationView
-                android:id="@+id/navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:background="?android:attr/windowBackground"
-                app:menu="@menu/navigation" />
-
-
-        </RelativeLayout>
-
-    </android.support.v4.widget.SwipeRefreshLayout>
+        </android.support.v4.widget.SwipeRefreshLayout>
+    -->
 
 
 </RelativeLayout>

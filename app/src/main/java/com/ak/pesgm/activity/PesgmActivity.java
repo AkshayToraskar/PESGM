@@ -20,12 +20,16 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ak.pesgm.R;
 import com.ak.pesgm.fragment.AboutFragment;
 import com.ak.pesgm.fragment.GalleryFragment;
 import com.ak.pesgm.fragment.HomeFragment;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -37,6 +41,12 @@ public class PesgmActivity extends AppCompatActivity {
     BottomNavigationView navigation;
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+    @BindView(R.id.tvTitle)
+    TextView tvTitle;
+    @BindView(R.id.tvSubtitle)
+    TextView tvSubtitle;
+    @BindView(R.id.ivDiamond)
+    ImageView ivDiamond;
 
     private static final int EXTERNAL_STORAGE_PERMISSION_CONSTANT = 100;
     private static final int REQUEST_PERMISSION_SETTING = 101;
@@ -55,7 +65,17 @@ public class PesgmActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
-        getSupportActionBar().setTitle(getResources().getString(R.string.app_title));
+        //getSupportActionBar().setTitle(getResources().getString(R.string.app_title));
+        tvTitle.setText(getResources().getString(R.string.app_title));
+        tvSubtitle.setText(getResources().getString(R.string.app_subtitle));
+
+
+        //GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(ivDiamond);
+        //Glide.with(this).load(R.raw.diamond).into(imageViewTarget);
+
+        Glide.with(this)
+                .load(R.raw.diamond1)
+                .into(ivDiamond);
 
         home = new HomeFragment();
         gallery = new GalleryFragment();

@@ -17,6 +17,8 @@ import com.ak.pesgm.app.PreviewData;
 import com.ak.pesgm.model.ImageData;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -30,7 +32,7 @@ import butterknife.ButterKnife;
 public class GalleryFragment extends Fragment implements PreviewData {
 
     View view;
-    private List<ImageData> ImageList;
+    private List<ImageData> imageList;
     public ImageAdapter mAdapter;
     @BindView(R.id.rvImageCollection)
     RecyclerView rvImageCollection;
@@ -54,12 +56,12 @@ public class GalleryFragment extends Fragment implements PreviewData {
         // realm = Realm.getDefaultInstance();
 
         imageData = new ArrayList<>();
-        ImageList = new ArrayList<>();
+        imageList = new ArrayList<>();
         previewData = this;
         generateImageData();
         //ImageList.addAll(realm.where(ImageData.class).findAll());
 
-        mAdapter = new ImageAdapter(getActivity(), ImageList, previewData);
+        mAdapter = new ImageAdapter(getActivity(), imageList, previewData);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         rvImageCollection.setLayoutManager(mLayoutManager);
 
@@ -73,7 +75,7 @@ public class GalleryFragment extends Fragment implements PreviewData {
     public void previewInfo(int position) {
         imageData.clear();
 
-        imageData.addAll(ImageList);
+        imageData.addAll(imageList);
 
 
         Bundle bundle = new Bundle();
@@ -117,7 +119,8 @@ public class GalleryFragment extends Fragment implements PreviewData {
             R.raw.fd2015,
             R.raw.fd2016,
             R.raw.fd2017,
-            R.raw.fd2010
+            R.raw.fd2018,
+            R.raw.fd2019
     };
 
     public void generateImageData() {
@@ -131,8 +134,10 @@ public class GalleryFragment extends Fragment implements PreviewData {
             img.setInfo(info[i]);
             img.setPath(imgpath[i]);
 
-            ImageList.add(img);
+            imageList.add(img);
         }
+
+        Collections.reverse(imageList);
 
 
     }
