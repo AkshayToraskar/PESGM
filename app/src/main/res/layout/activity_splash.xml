@@ -3,16 +3,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
     tools:context="com.ak.pesgm.activity.SplashActivity">
-
 
 
         <ImageView
             android:id="@+id/ivGifImg"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/frontpage"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/ivGifImg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:src="@drawable/bappa" />
+
+        <ImageView
+            android:id="@+id/ivGifImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="40dp"
+            android:src="@drawable/pesgm_name" />
 
 
 

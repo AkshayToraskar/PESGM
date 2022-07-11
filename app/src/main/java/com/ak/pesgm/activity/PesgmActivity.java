@@ -31,6 +31,9 @@ import com.ak.pesgm.fragment.HomeFragment;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -45,15 +48,13 @@ public class PesgmActivity extends AppCompatActivity {
     TextView tvTitle;
     @BindView(R.id.tvSubtitle)
     TextView tvSubtitle;
-    @BindView(R.id.ivDiamond)
-    ImageView ivDiamond;
 
     private static final int EXTERNAL_STORAGE_PERMISSION_CONSTANT = 100;
     private static final int REQUEST_PERMISSION_SETTING = 101;
     private boolean sentToSettings = false;
     private SharedPreferences permissionStatus;
 
-    HomeFragment home = new HomeFragment();
+//    HomeFragment home = new HomeFragment();
     GalleryFragment gallery = new GalleryFragment();
     AboutFragment about = new AboutFragment();
 
@@ -65,19 +66,15 @@ public class PesgmActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
 
+        Calendar now = Calendar.getInstance();
+        int year = now.get(Calendar.YEAR);
+        year = year - 1960;
+
         //getSupportActionBar().setTitle(getResources().getString(R.string.app_title));
         tvTitle.setText(getResources().getString(R.string.app_title));
-        tvSubtitle.setText(getResources().getString(R.string.app_subtitle));
+        tvSubtitle.setText(year +" "+ getResources().getString(R.string.app_subtitle));
 
-
-        //GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(ivDiamond);
-        //Glide.with(this).load(R.raw.diamond).into(imageViewTarget);
-
-        Glide.with(this)
-                .load(R.raw.diamond1)
-                .into(ivDiamond);
-
-        home = new HomeFragment();
+//        home = new HomeFragment();
         gallery = new GalleryFragment();
         about = new AboutFragment();
 
@@ -173,9 +170,9 @@ public class PesgmActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case R.id.navigation_home:
-                pushFragment(home);
-                break;
+//            case R.id.navigation_home:
+//                pushFragment(home);
+//                break;
             case R.id.navigation_dashboard:
                 pushFragment(gallery);
                 break;
