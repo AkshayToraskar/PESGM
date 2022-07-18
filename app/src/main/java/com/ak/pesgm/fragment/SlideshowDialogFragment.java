@@ -2,19 +2,14 @@ package com.ak.pesgm.fragment;
 
 import android.app.Dialog;
 import android.app.DialogFragment;
-import android.app.ProgressDialog;
 import android.app.WallpaperManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,18 +19,16 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.viewpager.widget.ViewPager;
 
 import com.ak.pesgm.R;
 import com.ak.pesgm.adapter.MyViewPagerAdapter;
 import com.ak.pesgm.model.ImageData;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-
-//import io.realm.Realm;
 
 
 public class SlideshowDialogFragment extends DialogFragment {
@@ -46,7 +39,6 @@ public class SlideshowDialogFragment extends DialogFragment {
     private TextView lblTitle;//lblCount,, lblDate;
     ImageButton btnInfo, btnShare, btnSetWallpaper;
     private int selectedPosition = 0;
-    //Realm realm;
 
     int pos;
 

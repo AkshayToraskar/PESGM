@@ -11,29 +11,5 @@
         android:layout_height="fill_parent"
         android:layout_centerInParent="true"
         android:scaleType="fitCenter" />
-<!--
-    <RelativeLayout
-        android:id="@+id/rlVideo"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerInParent="true">
-
-        <VideoView
-            android:id="@+id/video_preview"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_centerInParent="true"
-            android:visibility="gone" />
-
-        <ImageView
-            android:id="@+id/ivPlayButton"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/play_buttons"
-            android:visibility="gone" />
-
-    </RelativeLayout>-->
-
 
 </RelativeLayout>

@@ -4,12 +4,12 @@ package com.ak.pesgm.fragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ak.pesgm.R;
 import com.ak.pesgm.adapter.ImageAdapter;
@@ -17,14 +17,12 @@ import com.ak.pesgm.app.PreviewData;
 import com.ak.pesgm.model.ImageData;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-//import io.realm.Realm;
-//import io.realm.RealmList;
+
 
 /**
  * A simple {@link Fragment} subclass.

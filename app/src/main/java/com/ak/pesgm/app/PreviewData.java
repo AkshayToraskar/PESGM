@@ -6,5 +6,4 @@ package com.ak.pesgm.app;
 
 public interface PreviewData {
     void previewInfo(int position);
-
 }

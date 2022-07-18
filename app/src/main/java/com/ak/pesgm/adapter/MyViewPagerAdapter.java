@@ -2,29 +2,19 @@ package com.ak.pesgm.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.media.MediaPlayer;
-import android.net.Uri;
-import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.VideoView;
+
+import androidx.viewpager.widget.PagerAdapter;
 
 import com.ak.pesgm.R;
 import com.ak.pesgm.helper.TouchImageView;
 import com.ak.pesgm.model.ImageData;
 import com.bumptech.glide.Glide;
 
-import java.io.File;
 import java.util.ArrayList;
 
-import static android.view.View.GONE;
-
-/**
- * Created by dg hdghfd on 02-06-2017.
- */
 
 public class MyViewPagerAdapter extends PagerAdapter {
 
@@ -42,24 +32,12 @@ public class MyViewPagerAdapter extends PagerAdapter {
 
         layoutInflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.image_fullscreen_preview, container, false);
-
         final TouchImageView imageViewPreview = (TouchImageView) view.findViewById(R.id.image_preview);
-       // final VideoView videoView = (VideoView) view.findViewById(R.id.video_preview);
-      //  final ImageView btnPlayVideo = (ImageView) view.findViewById(R.id.ivPlayButton);
-      //  RelativeLayout rlVideo = (RelativeLayout) view.findViewById(R.id.rlVideo);
-
         final ImageData image = images.get(position);
 
-
-
-            Glide.with(activity)//.load(image.getByteArrayImage())
-                    .load(image.getPath())
-
-                    .into(imageViewPreview);
-
-
-
-
+        Glide.with(activity)
+                .load(image.getPath())
+                .into(imageViewPreview);
 
         container.addView(view);
 

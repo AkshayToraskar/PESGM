@@ -1,8 +1,6 @@
 package com.ak.pesgm.adapter;
 
 import android.app.Activity;
-import android.net.Uri;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,28 +9,24 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.ak.pesgm.R;
 import com.ak.pesgm.app.PreviewData;
 import com.ak.pesgm.model.ImageData;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import java.io.File;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-//import io.realm.Realm;
 
-/**
- * Created by dg hdghfd on 12-04-2017.
- */
 
 public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder> {
 
     private List<ImageData> sessionList;
     private Activity context;
-  //  Realm realm;
     PreviewData previewData;
     int lastPosition = -1;
 
@@ -96,6 +90,4 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.MyViewHolder
     public int getItemCount() {
         return sessionList.size();
     }
-
-
 }
